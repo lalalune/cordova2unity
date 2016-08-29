@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+        id="com.bravomedia.cordova2unity"
+        version="0.7.0">
+
+  <name>cordova2unity</name>
+
+  <engines>
+    <engine name="cordova" version=">=3.4.0"/>
+  </engines>
+
+  <asset src="www/cordova2unity.js" target="js/cordova2unity.js"/>
+
+  <js-module src="www/cordova2unity.js" name="cordova2unity">
+    <clobbers target="cordova2unity" />
+  </js-module>
+
+  <platform name="android">
+
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="cordova2unity">
+        <param name="android-package" value="com.bravomedia.cordova2unity"/>
+      </feature>
+    </config-file>
+
+    <source-file src="src/android/cordova2unity.java" target-dir="src/com/example/plugin/"/>
+  </platform>
+
+  <platform name="ios">
+    
+    <config-file target="config.xml" parent="/widget">
+      <feature name="cordova2unity">
+        <param name="ios-package" value="cordova2unity" />
+      </feature>
+    </config-file>
+
+    <header-file src="src/ios/cordova2unity.h" target-dir="cordova2unity"/>
+    <source-file src="src/ios/cordova2unity.m" target-dir="cordova2unity"/>
+  </platform>
+
+</plugin>
